@@ -12,7 +12,7 @@ namespace eShop.Data
         public DbSet<Product> Products { get; set; }
 
 
-
+        //ready
     }
 
 

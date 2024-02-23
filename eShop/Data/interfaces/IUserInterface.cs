@@ -2,8 +2,7 @@
 
 namespace eShop.Data.interfaces
 {
-    public interface ICategoryInterface : IRepository<Category>
+    public interface IUserInterface : IRepository<User>
     {
-
     }
 }

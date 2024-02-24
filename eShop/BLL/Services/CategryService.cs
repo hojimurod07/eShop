@@ -6,9 +6,11 @@ using eShop.Data.interfaces;
 
 namespace eShop.BLL.Services
 {
-    public class CategryService(IUnitOfWork unitOfWork) : ICategoryService
+    public class CategryService(IUnitOfWork unitOfWork,
+                                IUploadService uploadfile) : ICategoryService
     {
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
+        private readonly IUploadService _uploadfile = uploadfile;
 
         public void Create(AddCategoryDto categoryDto)
         {
@@ -25,7 +27,17 @@ namespace eShop.BLL.Services
             {
                 throw new CustomExeption("Name must be between 3 and 30 characters");
             }
+            if (categoryDto.file == null)
+            {
+                throw new CustomExeption("Category image is required");
+            }
+            Category category = new Category()
+            {
+                Name = categoryDto.Name,
+                ImageUrl = _uploadfile.UploadImage(categoryDto.file),
 
+            };
+            _unitOfWork.Categories.Add(category);
         }
 
         public void Delete(int id)
@@ -35,6 +47,7 @@ namespace eShop.BLL.Services
             {
                 throw new CustomExeption("Category was not found");
             }
+            _uploadfile.DeleteImage(category.ImageUrl);
             _unitOfWork.Categories.Delete(category.Id);
         }
 
@@ -45,6 +58,7 @@ namespace eShop.BLL.Services
             {
                 Id = c.Id,
                 Name = c.Name,
+                ImagePath = c.ImageUrl
 
             }
 

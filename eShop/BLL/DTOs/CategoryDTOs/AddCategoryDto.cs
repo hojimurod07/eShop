@@ -3,7 +3,7 @@
     public class AddCategoryDto
     {
         public string Name { get; set; } = string.Empty;
-        public IFormFile Image { get; set; }
+        public IFormFile? file { get; set; }
 
     }
 }

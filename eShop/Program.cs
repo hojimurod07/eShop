@@ -1,3 +1,5 @@
+using eShop.BLL.Interfaces;
+using eShop.BLL.Services;
 using eShop.Data;
 using eShop.Data.interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb")));
-
+builder.Services.AddTransient<ICategoryService, CategryService>();
 builder.Services.AddTransient<IUnitOfWork, IUnitOfWork>();
 var app = builder.Build();
 

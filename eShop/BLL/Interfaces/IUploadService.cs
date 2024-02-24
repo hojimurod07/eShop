@@ -1,6 +1,6 @@
 ﻿namespace eShop.BLL.Interfaces
 {
-    public interface IImageService
+    public interface IUploadService
     {
         string UploadImage(IFormFile file);
         void DeleteImage(string fileName);

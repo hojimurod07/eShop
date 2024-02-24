@@ -2,6 +2,7 @@ using eShop.BLL.Interfaces;
 using eShop.BLL.Services;
 using eShop.Data;
 using eShop.Data.interfaces;
+using eShop.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb")));
 builder.Services.AddTransient<ICategoryService, CategryService>();
-builder.Services.AddTransient<IUnitOfWork, IUnitOfWork>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

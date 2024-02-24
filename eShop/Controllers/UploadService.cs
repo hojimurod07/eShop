@@ -2,7 +2,7 @@
 
 namespace eShop.Controllers
 {
-    public class ImageService(IWebHostEnvironment webHostEnvironment) : IImageService
+    public class UploadService(IWebHostEnvironment webHostEnvironment) : IUploadService
     {
         private readonly IWebHostEnvironment _webHostEnvironment = webHostEnvironment;
 

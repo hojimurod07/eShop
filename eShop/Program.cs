@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb")));
 builder.Services.AddTransient<ICategoryService, CategryService>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-builder.Services.AddTransient<IImageService, ImageService>();
+builder.Services.AddTransient<IUploadService, UploadService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

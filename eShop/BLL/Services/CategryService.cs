@@ -1,6 +1,7 @@
 ﻿using eShop.BLL.Common;
 using eShop.BLL.DTOs.CategoryDTOs;
 using eShop.BLL.Interfaces;
+using eShop.Data.Entites;
 using eShop.Data.interfaces;
 
 namespace eShop.BLL.Services
@@ -29,22 +30,69 @@ namespace eShop.BLL.Services
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var category = _unitOfWork.Categories.GetById(id);
+            if (category == null)
+            {
+                throw new CustomExeption("Category was not found");
+            }
+            _unitOfWork.Categories.Delete(category.Id);
         }
 
         public List<CategoryDto> GetAll()
         {
-            throw new NotImplementedException();
+            var categories = _unitOfWork.Categories.GetAll();
+            var list = categories.Select(c => new CategoryDto()
+            {
+                Id = c.Id,
+                Name = c.Name,
+
+            }
+
+            ).ToList();
+            return list;
+
         }
 
         public CategoryDto GetById(int id)
         {
-            throw new NotImplementedException();
+            var category = _unitOfWork.Categories.GetById(id);
+            if (category == null)
+            {
+                throw new Exception("Category not found");
+            }
+            return new CategoryDto()
+            {
+                Id = category.Id,
+                Name = category.Name
+
+            };
         }
 
         public void Update(CategoryDto categoryDto)
         {
-            throw new NotImplementedException();
+            var category = _unitOfWork.Categories.GetById(categoryDto.Id);
+            if (category == null)
+            {
+                throw new Exception("Categry not found");
+
+            }
+            if (string.IsNullOrEmpty(categoryDto.Name))
+            {
+                throw new CustomExeption("Category name is Required");
+            }
+            if (categoryDto.Name.Length < 3 || categoryDto.Name.Length > 50)
+            {
+                throw new CustomExeption("Name must be between 3 and 30 characters");
+            }
+            var categoryUpdate = new Category()
+            {
+                Id = categoryDto.Id,
+                Name = categoryDto.Name,
+
+            };
+            _unitOfWork.Categories.Update(categoryUpdate);
+
+
         }
     }
 }

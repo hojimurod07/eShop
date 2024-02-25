@@ -1,6 +1,4 @@
-using eShop.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace eShop.Controllers
 {
@@ -18,15 +16,15 @@ namespace eShop.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Eror(string? url)
         {
-            return View();
+            if (url == null)
+            {
+                url = "/";
+            }
+            return View("Eror", url);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
     }
 }

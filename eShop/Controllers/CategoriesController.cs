@@ -1,4 +1,5 @@
-﻿using eShop.BLL.DTOs.CategoryDTOs;
+﻿using eShop.BLL.Common;
+using eShop.BLL.DTOs.CategoryDTOs;
 using eShop.BLL.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,9 +29,17 @@ namespace eShop.Controllers
         }
         public IActionResult Delete(int id)
         {
+            try
+            {
+                _categoryService.Delete(id);
+                return RedirectToAction("Index");
+            }
+            catch (CustomExeption)
+            {
 
-            _categoryService.Delete(id);
-            return RedirectToAction("Index");
+                return RedirectToAction("eror", "home", new { url = "/categories/index" });
+            }
+
         }
     }
 }

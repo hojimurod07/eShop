@@ -1,6 +1,5 @@
 using eShop.BLL.Interfaces;
 using eShop.BLL.Services;
-using eShop.Controllers;
 using eShop.Data;
 using eShop.Data.interfaces;
 using eShop.Data.Repositories;

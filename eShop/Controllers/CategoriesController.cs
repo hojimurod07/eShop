@@ -41,5 +41,40 @@ namespace eShop.Controllers
             }
 
         }
+        public IActionResult Edit(int id)
+        {
+            try
+            {
+                var category = _categoryService.GetById(id);
+                UpdateCategoryDto dto = new UpdateCategoryDto()
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    ImagePath = category.ImagePath,
+
+
+                };
+                return View(dto);
+            }
+            catch (CustomExeption)
+            {
+
+                return RedirectToAction("eror", "home", new { url = "/categories/index" });
+            }
+        }
+        [HttpPost]
+        public IActionResult Edit(UpdateCategoryDto dto)
+        {
+            try
+            {
+                _categoryService.Update(dto);
+                return RedirectToAction("index");
+            }
+            catch (CustomExeption ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(dto);
+            }
+        }
     }
 }

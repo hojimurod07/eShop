@@ -1,6 +1,6 @@
 ﻿using eShop.BLL.Interfaces;
 
-namespace eShop.Controllers
+namespace eShop.BLL.Services
 {
     public class UploadService(IWebHostEnvironment webHostEnvironment) : IUploadService
     {
@@ -26,7 +26,7 @@ namespace eShop.Controllers
                 file.CopyTo(fileStream);
             }
 
-            return $"~/images/{uniqFileName}";
+            return $"/images/{uniqFileName}";
         }
     }
 }

@@ -77,12 +77,14 @@ namespace eShop.BLL.Services
             return new CategoryDto()
             {
                 Id = category.Id,
-                Name = category.Name
+                Name = category.Name,
+                ImagePath = category.ImageUrl
+
 
             };
         }
 
-        public void Update(CategoryDto categoryDto)
+        public void Update(UpdateCategoryDto categoryDto)
         {
             var category = _unitOfWork.Categories.GetById(categoryDto.Id);
             if (category == null)
@@ -98,13 +100,19 @@ namespace eShop.BLL.Services
             {
                 throw new CustomExeption("Name must be between 3 and 30 characters");
             }
-            var categoryUpdate = new Category()
+            if (categoryDto.file != null)
             {
-                Id = categoryDto.Id,
-                Name = categoryDto.Name,
+                _uploadfile.DeleteImage(category.ImageUrl);
+                category.ImageUrl = _uploadfile.UploadImage(categoryDto.file);
+            }
+            else
+            {
 
-            };
-            _unitOfWork.Categories.Update(categoryUpdate);
+                category.ImageUrl = categoryDto.ImagePath;
+            }
+            category.Name = categoryDto.Name;
+
+            _unitOfWork.Categories.Update(category);
 
 
         }

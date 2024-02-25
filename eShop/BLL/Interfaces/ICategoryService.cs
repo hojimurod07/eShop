@@ -7,7 +7,7 @@ namespace eShop.BLL.Interfaces
         List<CategoryDto> GetAll();
         CategoryDto GetById(int id);
         void Create(AddCategoryDto categoryDto);
-        void Update(CategoryDto categoryDto);
+        void Update(UpdateCategoryDto categoryDto);
         void Delete(int id);
     }
 }

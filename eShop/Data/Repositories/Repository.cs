@@ -40,6 +40,7 @@ namespace eShop.Data.Repositories
 
         public void Update(TEntity entity)
         {
+
             _dbSet.Update(entity);
             _dbcontext.SaveChanges();
         }

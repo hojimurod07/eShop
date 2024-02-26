@@ -38,6 +38,8 @@ namespace eShop.BLL.Services
 
             };
             _unitOfWork.Categories.Add(category);
+
+
         }
 
         public void Delete(int id)

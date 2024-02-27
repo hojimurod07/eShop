@@ -113,18 +113,18 @@
                         <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                            
                             
-                            @for(int i = 0; i <= Model.TotalPages; i++)
+                            @for(int i = 1; i <=Model.TotalPages; i++)
                             {
                                 if (Model.PageNumber == i)
                                 {
                                     <li>
-                                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@i" class=" activ flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i+1)</a>
+                                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@i" class=" activ flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i)</a>
                                     </li>
                                 }
                                 else
                                 {
                                     <li>
-                                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@i" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i + 1)</a>
+                                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@i" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i)</a>
                                     </li>
                                 }
 

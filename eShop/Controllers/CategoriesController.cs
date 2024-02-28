@@ -77,5 +77,10 @@ namespace eShop.Controllers
                 return View(dto);
             }
         }
+
+        public IActionResult d()
+        {
+            return View();
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace eShop.BLL.Services
             {
                 throw new CustomExeption("Category image is required");
             }
+
             Category category = new Category()
             {
                 Name = categoryDto.Name,
@@ -62,9 +63,7 @@ namespace eShop.BLL.Services
                 Name = c.Name,
                 ImagePath = c.ImageUrl
 
-            }
-
-            ).ToList();
+            }).ToList();
             return list;
 
         }

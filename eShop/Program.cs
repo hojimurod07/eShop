@@ -13,6 +13,8 @@ builder.Services.AddDbContext<AppDbContext>(op => op.UseSqlServer(builder.Config
 builder.Services.AddTransient<ICategoryService, CategryService>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IUploadService, UploadService>();
+builder.Services.AddTransient<IProductService, ProductServices>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -49,11 +49,22 @@ namespace eShop.Controllers
         }
         public IActionResult Detail(int id)
         {
-            var dto = _productService.GetById(id);
+            var products = _productService.GetAll();
+            var prod = products.FirstOrDefault(x => x.Id == id);
 
 
 
-            return View(dto);
+            return View(prod);
+        }
+        public IActionResult Delete(int id)
+        {
+
+            var prod = _productService.GetById(id);
+            if (prod != null)
+            {
+                _productService.Delete(prod.Id);
+            }
+            return RedirectToAction("index");
         }
     }
 }

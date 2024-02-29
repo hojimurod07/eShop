@@ -1,4 +1,6 @@
-﻿namespace eShop.BLL.DTOs.CategoryDTOs
+﻿using eShop.Data.Entites;
+
+namespace eShop.BLL.DTOs.CategoryDTOs
 {
     public class CategoryDto
     {
@@ -7,6 +9,14 @@
 
         public string ImagePath { get; set; } = string.Empty;
 
+
+        public static implicit operator CategoryDto(Category category)
+            => new CategoryDto()
+            {
+                Id = category.Id,
+                Name = category.Name,
+                ImagePath = category.ImageUrl
+            };
 
     }
 }

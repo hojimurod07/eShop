@@ -1,4 +1,6 @@
-﻿namespace eShop.BLL.DTOs.ProductDTOs
+﻿using eShop.BLL.DTOs.CategoryDTOs;
+
+namespace eShop.BLL.DTOs.ProductDTOs
 {
     public class AddProductDto
     {
@@ -8,5 +10,7 @@
         public IFormFile Image { get; set; }
 
         public int CategoryId { get; set; }
+
+        public List<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
     }
 }

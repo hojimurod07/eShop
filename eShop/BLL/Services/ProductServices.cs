@@ -47,18 +47,9 @@ namespace eShop.BLL.Services
 
         public List<ProductDto> GetAll()
         {
-            var products = _unitofWork.Products.GetAll();
-            var list = products.Select(p => new ProductDto()
-            {
+            var products = _unitofWork.Products.GetProductsWithReletions();
 
-                Id = p.Id,
-                Name = p.Name,
-                ImageUrl = p.ImageUrl,
-                Description = p.Description,
-                Price = p.Price,
-                CategoryId = p.CategoryId,
-
-            }).ToList();
+            var list = products.Select(p => p.ToProductDto()).ToList();
             return list;
 
         }
@@ -66,17 +57,10 @@ namespace eShop.BLL.Services
         public ProductDto GetById(int id)
         {
             var product = _unitofWork.Products.GetById(id);
-            if (product == null) throw new CustomExeption("Product not found");
-            return new ProductDto()
-            {
-                Id = product.Id,
-                Name = product.Name,
-                ImageUrl = product.ImageUrl,
-                Description = product.Description,
-                Price = product.Price,
-                CategoryId = product.CategoryId,
+            if (product == null) throw new CustomExeption("Car not found");
+            return product.ToProductDto();
 
-            };
+
         }
 
         public void Update(UpdateProductDto product)

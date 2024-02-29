@@ -33,7 +33,7 @@ namespace eShop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(AddProductDto productDto)
+        public IActionResult Add(AddProductDto productDto)
         {
             try
             {
@@ -46,6 +46,14 @@ namespace eShop.Controllers
                 return View(productDto);
 
             }
+        }
+        public IActionResult Detail(int id)
+        {
+            var dto = _productService.GetById(id);
+
+
+
+            return View(dto);
         }
     }
 }

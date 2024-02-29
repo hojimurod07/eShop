@@ -57,7 +57,7 @@ namespace eShop.BLL.Services
         public ProductDto GetById(int id)
         {
             var product = _unitofWork.Products.GetById(id);
-            if (product == null) throw new CustomExeption("Car not found");
+            //if (product == null) throw new CustomExeption("Car not found");
             return product.ToProductDto();
 
 

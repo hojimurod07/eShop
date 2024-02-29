@@ -36,7 +36,7 @@ namespace eShop.BLL.Services
         public void Delete(int id)
         {
             var product = _unitofWork.Products.GetById(id);
-            if (product != null)
+            if (product == null)
             {
                 throw new CustomExeption("Product was not found");
 
@@ -82,7 +82,7 @@ namespace eShop.BLL.Services
             prod.Name = product.Name;
             prod.Description = product.Description;
             prod.Price = product.Price;
-            prod.CategoryId = product.CategoryId;
+            prod.CategoryId = product.Category.Id;
             _unitofWork.Products.Update(prod);
 
         }

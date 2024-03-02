@@ -66,10 +66,8 @@ namespace eShop.BLL.Services
         public void Update(UpdateProductDto product)
         {
             var prod = _unitofWork.Products.GetById(product.Id);
-            if (prod == null) throw new CustomExeption("Product not found");
-            if (product == null) throw new ArgumentNullException("product was null");
-            if (string.IsNullOrEmpty(product.Name)) throw new ArgumentNullException("name is reqiuired");
-            if (product.Name.Length < 3 || product.Name.Length > 50) throw new CustomExeption("Name must be between in 3 and 30 characters");
+
+
             if (product.file != null)
             {
                 _uploadService.DeleteImage(prod.ImageUrl);
@@ -79,10 +77,13 @@ namespace eShop.BLL.Services
             {
                 prod.ImageUrl = product.ImageUrl;
             }
+
             prod.Name = product.Name;
             prod.Description = product.Description;
             prod.Price = product.Price;
-            prod.CategoryId = product.Category.Id;
+            prod.CategoryId = product.CategoryId;
+
+
             _unitofWork.Products.Update(prod);
 
         }

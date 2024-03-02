@@ -2,6 +2,7 @@
 {
     public class UpdateProductDto : ProductDto
     {
+
         public IFormFile? file { get; set; }
 
     }

@@ -13,10 +13,10 @@ namespace eShop.Controllers
         private readonly ICategoryService _categoryService = categoryService;
         private readonly IUploadService _uploadService = uploadService;
 
-        public IActionResult Index()
+        public IActionResult Index(int pageNumber = 1)
         {
             var foods = _productService.GetAll();
-            var pageModel = new PageModel<ProductDto>(foods, 1);
+            var pageModel = new PageModel<ProductDto>(foods, pageNumber);
 
             return View(pageModel);
         }
@@ -69,24 +69,31 @@ namespace eShop.Controllers
                 return RedirectToAction("eror", "home", new { url = "/foods/index" });
             }
         }
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             try
             {
                 var products = _productService.GetAll();
-                var prod = products.FirstOrDefault(x => x.Id == id);
+                var product = products.FirstOrDefault(x => x.Id == id);
                 var categories = _categoryService.GetAll();
+
 
                 UpdateProductDto updateProductDto = new UpdateProductDto()
                 {
-                    Id = prod.Id,
-                    Name = prod.Name,
-                    Description = prod.Description,
-                    Price = prod.Price,
-                    Category = prod.Category,
+                    Id = product.Id,
+                    Name = product.Name,
+                    Description = product.Description,
+                    ImageUrl = product.ImageUrl,
+                    Price = product.Price,
+                    CategoryId = product.Category.Id,
                     Categories = categories,
-                    ImageUrl = prod.ImageUrl,
+                    Category = product.Category,
+
+
                 };
+
+
                 return View(updateProductDto);
             }
 

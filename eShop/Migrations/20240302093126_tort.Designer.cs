@@ -12,8 +12,8 @@ using eShop.Data;
 namespace eShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240302040119_ikkinchi")]
-    partial class ikkinchi
+    [Migration("20240302093126_tort")]
+    partial class tort
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

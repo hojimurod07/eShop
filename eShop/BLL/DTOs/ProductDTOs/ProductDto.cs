@@ -11,5 +11,6 @@ namespace eShop.BLL.DTOs.ProductDTOs
         public string ImageUrl { get; set; } = string.Empty;
         public int CategoryId { get; set; }
         public CategoryDto Category { get; set; } = new CategoryDto();
+        public List<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
     }
 }

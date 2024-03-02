@@ -58,13 +58,59 @@ namespace eShop.Controllers
         }
         public IActionResult Delete(int id)
         {
-
-            var prod = _productService.GetById(id);
-            if (prod != null)
+            try
             {
-                _productService.Delete(prod.Id);
+                _productService.Delete(id);
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("index");
+            catch (CustomExeption)
+            {
+
+                return RedirectToAction("eror", "home", new { url = "/foods/index" });
+            }
+        }
+        public IActionResult Edit(int id)
+        {
+            try
+            {
+                var products = _productService.GetAll();
+                var prod = products.FirstOrDefault(x => x.Id == id);
+                var categories = _categoryService.GetAll();
+
+                UpdateProductDto updateProductDto = new UpdateProductDto()
+                {
+                    Id = prod.Id,
+                    Name = prod.Name,
+                    Description = prod.Description,
+                    Price = prod.Price,
+                    Category = prod.Category,
+                    Categories = categories,
+                    ImageUrl = prod.ImageUrl,
+                };
+                return View(updateProductDto);
+            }
+
+
+
+            catch (CustomExeption)
+            {
+
+                return RedirectToAction("eror", "home", new { url = "/foods/index" });
+            }
+        }
+        [HttpPost]
+        public IActionResult Edit(UpdateProductDto dto)
+        {
+            try
+            {
+                _productService.Update(dto);
+                return RedirectToAction("index");
+            }
+            catch (CustomExeption ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(dto);
+            }
         }
     }
 }

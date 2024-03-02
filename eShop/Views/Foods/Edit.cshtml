@@ -6,9 +6,6 @@
 @model UpdateProductDto
 
 
-
-
-
 <br />
 <br />
 
@@ -26,6 +23,7 @@
     <form asp-controller="foods" asp-action="Edit" method="post" enctype="multipart/form-data" class="max-w-md mx-auto">
         <input type="hidden" asp-for="Id" value="@Model.Id" />
         <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl" />
+      
 
         <br />
         <h5 class="text-3xl text-center font-bold dark:text-white">Currnt image</h5>
@@ -48,13 +46,22 @@
         </div>
         <div>
             <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an Category</label>
-            <select  asp-for="CategoryId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected   value="@Model.Category.Id"  disabled>@Model.Category.Name</option>
 
-                @foreach(var category in Model.Categories)
+           
+
+
+            <select  asp-for="CategoryId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option disabled" >--Select Category--</option>
+                @foreach (var category in Model.Categories)
                 {
-                    <option value="@category.Id">@category.Name</option>
-                    
+                    if (category.Id == Model.CategoryId)
+                    {
+                        <option value="@category.Id" selected>@category.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
                 }
             </select>
         </div>

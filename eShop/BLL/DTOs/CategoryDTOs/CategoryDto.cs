@@ -1,5 +1,4 @@
-﻿using eShop.Data.Entites;
-
+﻿
 namespace eShop.BLL.DTOs.CategoryDTOs
 {
     public class CategoryDto

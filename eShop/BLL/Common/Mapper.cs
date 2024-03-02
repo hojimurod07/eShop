@@ -1,7 +1,4 @@
-﻿using eShop.BLL.DTOs.CategoryDTOs;
-using eShop.BLL.DTOs.ProductDTOs;
-using eShop.Data.Entites;
-
+﻿
 namespace eShop.BLL.Common
 {
     public static class Mapper

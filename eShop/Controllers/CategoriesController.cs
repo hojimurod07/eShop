@@ -1,6 +1,4 @@
-﻿using eShop.BLL.Common;
-using eShop.BLL.DTOs.CategoryDTOs;
-using eShop.BLL.Interfaces;
+﻿
 using Microsoft.AspNetCore.Mvc;
 
 namespace eShop.Controllers

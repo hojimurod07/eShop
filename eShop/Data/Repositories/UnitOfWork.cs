@@ -1,5 +1,4 @@
-﻿using eShop.Data.interfaces;
-
+﻿
 namespace eShop.Data.Repositories
 {
     public class UnitOfWork(AppDbContext db) : IUnitOfWork

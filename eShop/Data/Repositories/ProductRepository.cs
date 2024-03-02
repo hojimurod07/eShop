@@ -1,5 +1,4 @@
-﻿using eShop.Data.Entites;
-using eShop.Data.interfaces;
+﻿
 using Microsoft.EntityFrameworkCore;
 
 namespace eShop.Data.Repositories

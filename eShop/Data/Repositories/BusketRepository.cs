@@ -1,5 +1,4 @@
-﻿using eShop.Data.Entites;
-using eShop.Data.interfaces;
+﻿
 
 namespace eShop.Data.Repositories
 {

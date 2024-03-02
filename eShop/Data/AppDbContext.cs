@@ -1,4 +1,4 @@
-﻿using eShop.Data.Entites;
+﻿
 using Microsoft.EntityFrameworkCore;
 
 namespace eShop.Data

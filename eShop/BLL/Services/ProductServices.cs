@@ -1,8 +1,4 @@
-﻿using eShop.BLL.Common;
-using eShop.BLL.DTOs.ProductDTOs;
-using eShop.BLL.Interfaces;
-using eShop.Data.Entites;
-using eShop.Data.interfaces;
+﻿
 
 namespace eShop.BLL.Services
 {

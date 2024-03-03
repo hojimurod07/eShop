@@ -1,8 +1,8 @@
-using eShop.BLL.Interfaces;
-using eShop.BLL.Services;
-using eShop.Data;
-using eShop.Data.interfaces;
-using eShop.Data.Repositories;
+using eShop.Areas.Admin.BLL.Interfaces;
+using eShop.Areas.Admin.BLL.Services;
+using eShop.Areas.Admin.Data;
+using eShop.Areas.Admin.Data.interfaces;
+using eShop.Areas.Admin.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +31,13 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+
+    name: "admin",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+
 
 app.MapControllerRoute(
     name: "default",

@@ -1,6 +1,4 @@
-﻿using eShop.Areas.Admin.BLL.DTOs.ProductDTOs;
-
-namespace eShop.Areas.Admin.BLL.Interfaces
+﻿namespace eShop.Areas.Admin.BLL.Interfaces
 {
     public interface IProductService
     {
@@ -9,6 +7,7 @@ namespace eShop.Areas.Admin.BLL.Interfaces
         void Create(AddProductDto product);
         void Update(UpdateProductDto product);
         void Delete(int id);
+        ProductDto GetByIdWithRelations(int id);
 
     }
 }

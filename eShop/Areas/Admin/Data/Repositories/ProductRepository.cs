@@ -1,7 +1,4 @@
-﻿using eShop.Areas.Admin.Data;
-using eShop.Areas.Admin.Data.Entites;
-using eShop.Areas.Admin.Data.interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace eShop.Areas.Admin.Data.Repositories
 {
@@ -11,6 +8,11 @@ namespace eShop.Areas.Admin.Data.Repositories
         public List<Product> GetProductsWithReletions()
         {
             return _db.Products.Include(c => c.Category).ToList();
+        }
+
+        public Product GetProductWithRelation(int id)
+        {
+            return _db.Products.Include(p => p.Category).FirstOrDefault(p => p.Id == id);
         }
     }
 

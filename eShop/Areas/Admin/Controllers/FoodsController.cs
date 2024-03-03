@@ -1,7 +1,4 @@
-﻿using eShop.Areas.Admin.BLL.Common;
-using eShop.Areas.Admin.BLL.DTOs.ProductDTOs;
-using eShop.Areas.Admin.BLL.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace eShop.Areas.Admin.Controllers
 {
@@ -48,14 +45,26 @@ namespace eShop.Areas.Admin.Controllers
 
             }
         }
+        [HttpGet]
         public IActionResult Detail(int id)
         {
             var products = _productService.GetAll();
-            var prod = products.FirstOrDefault(x => x.Id == id);
+            var p = products.FirstOrDefault(x => x.Id == id);
 
 
+            ProductDto productDto = new ProductDto()
+            {
+                Name = "salo,",
+                Id = p.Id,
+                Category = p.Category,
+                CategoryId = p.Category.Id,
+                Price = p.Price,
+                Description = p.Description,
+                ImageUrl = p.ImageUrl,
 
-            return View(prod);
+            };
+
+            return View(productDto);
         }
         public IActionResult Delete(int id)
         {

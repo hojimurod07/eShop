@@ -1,10 +1,4 @@
-﻿using eShop.Areas.Admin.BLL.Common;
-using eShop.Areas.Admin.BLL.DTOs.ProductDTOs;
-using eShop.Areas.Admin.BLL.Interfaces;
-using eShop.Areas.Admin.Data.Entites;
-using eShop.Areas.Admin.Data.interfaces;
-
-namespace eShop.Areas.Admin.BLL.Services
+﻿namespace eShop.Areas.Admin.BLL.Services
 {
     public class ProductServices(IUnitOfWork unitofWork,
                                    IUploadService uploadService) : IProductService
@@ -52,6 +46,11 @@ namespace eShop.Areas.Admin.BLL.Services
             var list = products.Select(p => p.ToProductDto()).ToList();
             return list;
 
+        }
+        public ProductDto GetByIdWithRelations(int id)
+        {
+            var p = _unitofWork.Products.GetProductWithRelation(id);
+            return p.ToProductDto();
         }
 
         public ProductDto GetById(int id)

@@ -1,7 +1,4 @@
-﻿using eShop.Areas.Admin.Data.Entites;
-using eShop.Areas.Admin.Data.interfaces;
-using eShop.BLL.DTOs.CategoryDTOs;
-using eShop.BLL.Interfaces;
+﻿
 
 namespace eShop.BLL.Services
 {

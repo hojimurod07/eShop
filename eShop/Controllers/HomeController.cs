@@ -2,11 +2,15 @@
 
 namespace eShop.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(ICategoryService categoryService) : Controller
     {
+
+        private readonly ICategoryService _categoryService = categoryService;
+
         public IActionResult Index()
         {
-            return View();
+            var categories = _categoryService.GetAll();
+            return View(categories);
         }
     }
 }

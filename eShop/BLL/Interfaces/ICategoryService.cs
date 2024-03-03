@@ -1,6 +1,6 @@
-﻿using eShop.Areas.Admin.BLL.DTOs.CategoryDTOs;
+﻿using eShop.BLL.DTOs.CategoryDTOs;
 
-namespace eShop.Areas.Admin.BLL.Interfaces
+namespace eShop.BLL.Interfaces
 {
     public interface ICategoryService
     {

@@ -1,4 +1,4 @@
-﻿namespace eShop.Areas.Admin.BLL.DTOs.CategoryDTOs
+﻿namespace eShop.BLL.DTOs.CategoryDTOs
 {
     public class UpdateCategoryDto : CategoryDto
     {

@@ -1,4 +1,4 @@
-﻿namespace eShop.Areas.Admin.BLL.Services
+﻿namespace eShop.BLL.Services
 {
     public class ProductServices(IUnitOfWork unitofWork,
                                    IUploadService uploadService) : IProductService

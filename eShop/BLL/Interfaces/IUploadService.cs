@@ -1,4 +1,4 @@
-﻿namespace eShop.Areas.Admin.BLL.Interfaces
+﻿namespace eShop.BLL.Interfaces
 {
     public interface IUploadService
     {

@@ -1,7 +1,7 @@
-﻿using eShop.Areas.Admin.BLL.DTOs.ProductDTOs;
-using eShop.Areas.Admin.Data.Entites;
+﻿using eShop.Areas.Admin.Data.Entites;
+using eShop.BLL.DTOs.ProductDTOs;
 
-namespace eShop.Areas.Admin.BLL.Common
+namespace eShop.BLL.Common
 {
     public static class Mapper
     {

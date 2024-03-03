@@ -1,6 +1,6 @@
-﻿using eShop.Areas.Admin.BLL.Interfaces;
+﻿using eShop.BLL.Interfaces;
 
-namespace eShop.Areas.Admin.BLL.Services
+namespace eShop.BLL.Services
 {
     public class UploadService(IWebHostEnvironment webHostEnvironment) : IUploadService
     {

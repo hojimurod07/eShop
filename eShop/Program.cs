@@ -1,8 +1,6 @@
-using eShop.Areas.Admin.BLL.Interfaces;
-using eShop.Areas.Admin.BLL.Services;
 using eShop.Areas.Admin.Data;
-using eShop.Areas.Admin.Data.interfaces;
 using eShop.Areas.Admin.Data.Repositories;
+using eShop.BLL.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,7 +1,4 @@
-﻿using eShop.Areas.Admin.BLL.Common;
-using eShop.Areas.Admin.BLL.DTOs.CategoryDTOs;
-using eShop.Areas.Admin.BLL.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace eShop.Areas.Admin.Controllers
 {

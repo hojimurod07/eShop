@@ -1,4 +1,4 @@
-﻿namespace eShop.Areas.Admin.BLL.DTOs.ProductDTOs
+﻿namespace eShop.BLL.DTOs.ProductDTOs
 {
     public class UpdateProductDto : ProductDto
     {

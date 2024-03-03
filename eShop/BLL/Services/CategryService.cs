@@ -1,9 +1,9 @@
-﻿using eShop.Areas.Admin.BLL.DTOs.CategoryDTOs;
-using eShop.Areas.Admin.BLL.Interfaces;
-using eShop.Areas.Admin.Data.Entites;
+﻿using eShop.Areas.Admin.Data.Entites;
 using eShop.Areas.Admin.Data.interfaces;
+using eShop.BLL.DTOs.CategoryDTOs;
+using eShop.BLL.Interfaces;
 
-namespace eShop.Areas.Admin.BLL.Services
+namespace eShop.BLL.Services
 {
     public class CategryService(IUnitOfWork unitOfWork,
                                 IUploadService uploadfile) : ICategoryService

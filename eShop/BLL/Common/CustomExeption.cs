@@ -1,4 +1,4 @@
-﻿namespace eShop.Areas.Admin.BLL.Common
+﻿namespace eShop.BLL.Common
 {
     public class CustomExeption(string message) : Exception(message)
     {

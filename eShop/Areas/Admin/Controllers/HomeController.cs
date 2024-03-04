@@ -27,5 +27,11 @@ namespace eShop.Areas.Admin.Controllers
         }
 
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+
     }
 }

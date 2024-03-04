@@ -1,5 +1,4 @@
-﻿using eShop.Areas.Admin.Data.Entites;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace eShop.Areas.Admin.Data
 {
@@ -16,6 +15,24 @@ namespace eShop.Areas.Admin.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            User superUser = new User()
+            {
+                Id = 1,
+                FullName = "Super User",
+                Password = "Super.Admin",
+                Phone = "+998908624707",
+                Adress = "Fergana"
+
+            };
+            modelBuilder.Entity<User>().HasData(superUser);
+
+
+
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         //ready
     }

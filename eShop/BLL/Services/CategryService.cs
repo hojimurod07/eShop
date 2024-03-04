@@ -67,10 +67,10 @@ namespace eShop.BLL.Services
         public CategoryDto GetById(int id)
         {
             var category = _unitOfWork.Categories.GetById(id);
-            if (category == null)
-            {
-                throw new Exception("Category not found");
-            }
+            //if (category == null)
+            //{
+            //    throw new Exception("Category not found");
+            //}
             return new CategoryDto()
             {
                 Id = category.Id,

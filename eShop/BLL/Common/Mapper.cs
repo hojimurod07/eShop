@@ -1,7 +1,4 @@
-﻿using eShop.Areas.Admin.Data.Entites;
-using eShop.BLL.DTOs.ProductDTOs;
-
-namespace eShop.BLL.Common
+﻿namespace eShop.BLL.Common
 {
     public static class Mapper
     {
@@ -14,12 +11,14 @@ namespace eShop.BLL.Common
                 Price = product.Price,
                 Description = product.Description,
                 ImageUrl = product.ImageUrl,
+                CategoryId = product.Category.Id,
                 Category = new CategoryDto
                 {
                     Id = product.Category.Id,
                     Name = product.Category.Name,
                     ImagePath = product.Category.ImageUrl
                 }
+
             };
         public static Product ToProduct(this ProductDto productDto)
             => new()

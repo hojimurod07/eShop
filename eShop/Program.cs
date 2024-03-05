@@ -12,6 +12,8 @@ builder.Services.AddTransient<ICategoryService, CategryService>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IUploadService, UploadService>();
 builder.Services.AddTransient<IProductService, ProductServices>();
+builder.Services.AddTransient<IAuthService, AuthService>();
+
 
 var app = builder.Build();
 

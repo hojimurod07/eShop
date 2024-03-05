@@ -14,7 +14,7 @@ namespace eShop.Areas.Admin.Controllers
         public IActionResult Index(int pageNumber = 1)
         {
             var foods = _productService.GetAll();
-            var pageModel = new PageModel<ProductDto>(foods, pageNumber);
+            var pageModel = new PageModel<ProductDto>(foods, pageNumber, 5);
 
             return View(pageModel);
         }
@@ -45,26 +45,27 @@ namespace eShop.Areas.Admin.Controllers
 
             }
         }
-        [HttpGet]
+
+
         public IActionResult Detail(int id)
         {
             var products = _productService.GetAll();
             var p = products.FirstOrDefault(x => x.Id == id);
 
 
-            ProductDto productDto = new ProductDto()
-            {
-                Name = "salo,",
-                Id = p.Id,
-                Category = p.Category,
-                CategoryId = p.Category.Id,
-                Price = p.Price,
-                Description = p.Description,
-                ImageUrl = p.ImageUrl,
+            //ProductDto productDto = new ProductDto()
+            //{
+            //    Name = p.Name,
+            //    Id = p.Id,
+            //    Category = p.Category,
+            //    CategoryId = p.Category.Id,
+            //    Price = p.Price,
+            //    Description = p.Description,
+            //    ImageUrl = p.ImageUrl,
 
-            };
+            //};
 
-            return View(productDto);
+            return View(p);
         }
         public IActionResult Delete(int id)
         {

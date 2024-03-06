@@ -51,7 +51,7 @@ namespace eShop.Areas.Admin.Controllers
                     Name = category.Name,
                     ImagePath = category.ImagePath,
 
-
+                    //a
                 };
                 return View(dto);
             }

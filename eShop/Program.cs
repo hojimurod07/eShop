@@ -13,7 +13,15 @@ builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IUploadService, UploadService>();
 builder.Services.AddTransient<IProductService, ProductServices>();
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
+
+
+builder.Services.AddAuthentication("ApplicationCookie")
+    .AddCookie("ApplicationCookie", config =>
+    {
+        config.LoginPath = "/admin/home/login";
+    });
 
 var app = builder.Build();
 
@@ -29,7 +37,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

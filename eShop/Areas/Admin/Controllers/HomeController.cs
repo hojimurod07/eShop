@@ -12,7 +12,12 @@ namespace eShop.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var isLogidIn = _authService.IsLoggedIn();
+            if (isLogidIn)
+            {
+                return View();
+            }
+            return RedirectToAction("login");
         }
 
         public IActionResult Eror(string? url)
@@ -32,9 +37,10 @@ namespace eShop.Areas.Admin.Controllers
             return View(loginDto);
         }
         [HttpPost]
-        public IActionResult Login(LoginDto dto)
+        public async Task<IActionResult> Login(LoginDto dto)
         {
-            var result = _authService.Login(dto);
+            var result = await _authService.LoginAsync(dto);
+
             if (result.IsSuccess)
             {
 

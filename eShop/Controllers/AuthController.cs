@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using eShop.BLL.DTOs.UserDtos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eShop.Controllers
 {
@@ -6,7 +7,8 @@ namespace eShop.Controllers
     {
         public IActionResult Login()
         {
-            return View();
+            LoginDto loginDto = new LoginDto();
+            return View(loginDto);
         }
         public IActionResult Register()
         {

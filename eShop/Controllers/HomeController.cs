@@ -21,9 +21,6 @@ namespace eShop.Controllers
 
             return View(model);
         }
-        public IActionResult Login()
-        {
-            return View();
-        }
+
     }
 }

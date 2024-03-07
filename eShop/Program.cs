@@ -17,12 +17,15 @@ builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
 
 
-builder.Services.AddAuthentication("ApplicationCookie")
-    .AddCookie("ApplicationCookie", config =>
+builder.Services.AddAuthentication()
+    .AddCookie("Admin", config =>
     {
-        config.LoginPath = "/admin/home/login";
+        config.LoginPath = "/admin/auth/login";
+    })
+    .AddCookie("User", config =>
+    {
+        config.LoginPath = "/auth/login";
     });
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -17,14 +17,14 @@ namespace eShop.Areas.Admin.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            User superUser = new User()
+            User superUser = new()
             {
-                Id = 1,
-                FullName = "Super User",
-                Password = "Super.Admin",
+                Id = 11111111,
+                FullName = "Super Admin",
                 Phone = "+998908624707",
-                Adress = "Fergana"
-
+                Password = PasswordHasher.HashPassword("Super.Admin"),
+                Adress = "Database",
+                Role = Role.Admin
             };
             modelBuilder.Entity<User>().HasData(superUser);
 

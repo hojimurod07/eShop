@@ -1,9 +1,10 @@
-using eShop.BLL.DTOs.UserDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class HomeController(IAuthService authService) : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -12,12 +13,8 @@ namespace eShop.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var isLogidIn = _authService.IsLoggedIn();
-            if (isLogidIn)
-            {
-                return View();
-            }
-            return RedirectToAction("login");
+            return View();
+
         }
 
         public IActionResult Eror(string? url)
@@ -30,26 +27,7 @@ namespace eShop.Areas.Admin.Controllers
         }
 
 
-        public IActionResult Login()
-        {
-            LoginDto loginDto = new LoginDto();
 
-            return View(loginDto);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginDto dto)
-        {
-            var result = await _authService.LoginAsync(dto);
-
-            if (result.IsSuccess)
-            {
-
-                return RedirectToAction("Index");
-            }
-            dto.Eror = result.ErrorMessage;
-
-            return View(dto);
-        }
 
 
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShop.Areas.Admin.Data;
 
@@ -11,9 +12,11 @@ using eShop.Areas.Admin.Data;
 namespace eShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240307050421_UChinchiMarta")]
+    partial class UChinchiMarta
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,12 +166,12 @@ namespace eShop.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 11111111,
-                            Adress = "Database",
-                            FullName = "Super Admin",
-                            Password = "f0a1f305f7f9a57d52a0710420881c0bb2786aff36b0507bb5bca18cea54c3fa",
+                            Id = 1,
+                            Adress = "Fergana",
+                            FullName = "Super User",
+                            Password = "Super.Admin",
                             Phone = "+998908624707",
-                            Role = 0
+                            Role = 1
                         });
                 });
 

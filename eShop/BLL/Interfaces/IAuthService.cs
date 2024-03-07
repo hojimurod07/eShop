@@ -6,7 +6,7 @@ namespace eShop.BLL.Interfaces
     public interface IAuthService
     {
 
-        AuthResult Login(LoginDto logindto);
+        Task<AuthResult> LoginAsync(LoginDto logindto);
         bool IsLoggedIn();
         void Logout();
 

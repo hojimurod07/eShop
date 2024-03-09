@@ -54,5 +54,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 //aa
+app.MapControllerRoute("Filtered", "Home/Filtered/{categoryId}", new { controller = "Home", action = "Filtered" });
 
 app.Run();

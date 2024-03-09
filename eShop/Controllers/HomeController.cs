@@ -21,6 +21,24 @@ namespace eShop.Controllers
 
             return View(model);
         }
+        public IActionResult Filtered(int categoryId)
+        {
+
+            var categories = _categoryService.GetAll();
+            var products = _productService.GetAll();
+            var filteredProducts = products.Where(c => c.Category.Id == categoryId).ToList();
+
+            IndeViewModel model = new IndeViewModel()
+            {
+                Categories = categories,
+                Products = filteredProducts,
+                CategoryId = categoryId
+            };
+            return View("Index", model);
+
+
+        }
+
 
     }
 }

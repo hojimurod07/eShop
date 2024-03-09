@@ -1,0 +1,263 @@
+﻿
+
+
+
+@model PageModel<ProductDto>
+
+
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div style="height:1080px" class="relative  overflow-hidden rounded-lg md:h-96">
+        <!-- Item 1 -->
+        @foreach (var c in Model.Items)
+        {
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img style="object-fit:contain" src="@c.ImageUrl" class="  absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+        }
+
+
+
+
+    </div>
+    <!-- Slider indicators -->
+    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+
+
+
+@if (Model.TotalPages > 1)
+{
+    <input type="hidden" value="@Model.PageNumber" id="pageNumber" />
+    <div style="display:flex;justify-content:center">
+        @if (Model.TotalPages < 6)
+        {
+            //umuiy 6 tadan kichik holat uchun
+            <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-5 pb-5" aria-label="Table navigation">
+
+                <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+
+
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        if (Model.PageNumber == i)
+                        {
+                            <li>
+                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@i" class=" activ flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i)</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@i" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i)</a>
+                            </li>
+                        }
+
+                    }
+
+                </ul>
+            </nav>
+        }
+        else if (Model.PageNumber < 4)
+        {
+
+            //boshiga yaqin holati
+            <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-5 pb-5" aria-label="Table navigation">
+
+                <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                    @if (Model.PageNumber == 1)
+                    {
+                        <li>
+                            <a href="#" class=" pointer-events-none flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4" />
+                                </svg>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="  flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4" />
+                                </svg>
+                            </a>
+                        </li>
+                    }
+
+
+
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="2" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="3" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
+                    </li>
+                    <li>
+                        <a href="#" disabled class="flex items-center  justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none ">...</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@Model.TotalPages" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        }
+        else if (Model.TotalPages - 3 >= Model.PageNumber)
+        {
+            // ortacha holati
+            <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-5 pb-5" aria-label="Table navigation">
+
+                <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4" />
+                            </svg>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none">...</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.PageNumber - 1)</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.PageNumber</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.PageNumber + 1)</a>
+                    </li>
+                    <li>
+                        <a href="#" disabled class="flex items-center  justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none">...</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.TotalPages)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        }
+        else
+        {
+            <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-5 pb-5" aria-label="Table navigation">
+
+                <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4" />
+                            </svg>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                    </li>
+
+                    <li>
+                        <a href="#" disabled class="flex items-center  justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none">...</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.TotalPages - 2)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.TotalPages - 2)</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.TotalPages - 1)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.TotalPages - 1)</a>
+                    </li>
+                    <li>
+                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.TotalPages)" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
+                    </li>
+                    <li>
+                        @if (Model.PageNumber == Model.TotalPages)
+                        {
+                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4" />
+                                </svg>
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4" />
+                                </svg>
+                            </a>
+                        }
+
+                    </li>
+                </ul>
+            </nav>
+        }
+    </div>
+}
+
+
+<style>
+    .activ {
+        color: white;
+        background-color: #1C64F2;
+    }
+</style>
+</div>
+<script>
+
+    var pageNumber = document.getElementById("pageNumber").value;
+    var Items = document.querySelectorAll(".tugma");
+
+    for (var i = 0; i < Items.length; i++) {
+        if (Items[i].innerText == pageNumber) {
+            Items[i].classList.add('activ');
+        }
+    }
+
+
+
+</script>

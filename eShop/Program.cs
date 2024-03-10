@@ -26,8 +26,6 @@ builder.Services.AddAuthentication()
     {
         config.LoginPath = "/auth/login";
     });
-
-    
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

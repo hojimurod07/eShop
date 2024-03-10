@@ -10,7 +10,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" />
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -23,159 +22,13 @@
     
 
             @RenderBody()
+ 
+
+   
 
 
 
 
-    <script >
-
-        
-        function updateCart(prodId) {
-            var localData = localStorage.getItem('cartItems');
-            var cartItems = [];
-            if (localData) {
-                cartItems = JSON.parse(localData);
-                for (let i = 0; i < cartItems.length; i++) {
-                    if (cartItems[i].car.id == prodId) {
-                        cartItems[i].count++;
-                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                        updateCartItemsCount();
-                        return;
-                    }
-                }
-            }
-
-            $.ajax({
-                url: '/home/get/' + prodId,
-                type: 'GET',
-                success: function (data) {
-                    var car = data;
-
-                    var cartItem = {
-                        car: car,
-                        count: 1
-                    }
-
-                    cartItems.push(cartItem);
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    updateCartItemsCount();
-                }
-            });
-        }
-
-        function updateCartItemsCount() {
-            var localData = localStorage.getItem('cartItems');
-            var cartItems = JSON.parse(localData);
-            var count = 0;
-            for (let i = 0; i < cartItems.length; i++) {
-                count += cartItems[i].count;
-            }
-            document.getElementById('cart-items-count').innerText = count;
-            cartItem()
-        }
-
-        function cartItem() {
-            var localData = localStorage.getItem('cartItems');
-            var cartItems = JSON.parse(localData);
-            var datadiv = document.getElementById('datadiv');
-            datadiv.innerHTML = '';
-            var total = 0;
-
-            for (let i = 0; i < cartItems.length; i++) {
-                total += cartItems[i].car.price * cartItems[i].count;
-                const imageUrl = `https://localhost:7187/${cartItems[i].car.colors[0].images[0].url.replace("~/", "")}`;
-                var item = `
-                                <div id="div${cartItems[i].car.id}">
-                                    <div class="row my-4 px-2">
-                                    <div class="col-md-3">
-                                                <input type="hidden" class="itemId" value="${cartItems[i].car.id}" />
-                                                <img width="150" src="${imageUrl}" asp-append-version="true" class="cart-item-img" alt="">
-                                    </div>
-                                    <div class="col-md-4 ms-5">
-                                                <h5>${cartItems[i].car.name}</h5>
-                                                <h6>$ <span class="price">${cartItems[i].car.price}</span></h6>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="d-flex justify-content-between counter plus-minus">
-                                                    <button class="btn btn-warning" onclick="minus(${cartItems[i].car.id})"> - </button>
-                                            <input style="width:50px; text-align:center;" id="id${cartItems[i].car.id}" disabled readonly type="text" class="count mx-2" value="${cartItems[i].count}"/>
-                                            <button class="btn btn-primary" onclick="plus(${cartItems[i].car.id})"> + </button>
-                                        </div>
-                                            <a onclick="removeFromCart(${cartItems[i].car.id})" class="remove btn text-danger float-end"><i class="bi bi-trash3-fill"></i></a>
-                                    </div>
-                                </div>
-                                <hr>
-                                </div>
-                            `;
-
-                var div = document.createElement("div");
-                div.innerHTML = item;
-
-                datadiv.appendChild(div);
-            }
-            setTotalPrice()
-        }
-
-        function plus(prodId) {
-            var localData = localStorage.getItem('cartItems');
-            var cartItems = JSON.parse(localData);
-            for (let i = 0; i < cartItems.length; i++) {
-                if (cartItems[i].car.id == prodId) {
-                    cartItems[i].count++;
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    updateCartItemsCount();
-                    var input = document.getElementById('id' + prodId);
-                    input.value = cartItems[i].count;
-                    setTotalPrice()
-                    return;
-                }
-            }
-        }
-
-        function minus(prodId) {
-            var localData = localStorage.getItem('cartItems');
-            var cartItems = JSON.parse(localData);
-            for (let i = 0; i < cartItems.length; i++) {
-                if (cartItems[i].car.id == prodId && cartItems[i].count > 1) {
-                    cartItems[i].count--;
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    updateCartItemsCount();
-                    var input = document.getElementById('id' + prodId);
-                    input.value = cartItems[i].count;
-                    setTotalPrice()
-                    return;
-                }
-            }
-        }
-
-        function setTotalPrice() {
-            var localData = localStorage.getItem('cartItems');
-            var cartItems = JSON.parse(localData);
-            var total = 0;
-            for (let i = 0; i < cartItems.length; i++) {
-                total += cartItems[i].car.price * cartItems[i].count;
-            }
-            document.getElementById('total').innerText = '$ ' + total;
-        }
-
-        function removeFromCart(prodId) {
-            var localData = localStorage.getItem('cartItems');
-            var cartItems = JSON.parse(localData);
-            for (let i = 0; i < cartItems.length; i++) {
-                if (cartItems[i].car.id == prodId) {
-                    cartItems.splice(i, 1);
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    updateCartItemsCount();
-                    var div = document.getElementById('div' + prodId);
-                    div.remove();
-                    setTotalPrice()
-                    return;
-                }
-            }
-        }
-
-
-    </script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

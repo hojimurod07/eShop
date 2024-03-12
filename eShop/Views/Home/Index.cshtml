@@ -102,28 +102,28 @@
                            
                             <script>
                                 var CardCount = document.getElementById("card-caunt-item");
-                                var cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Retrieve cart items from local storage or initialize an empty array
+                                var cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; 
 
-                                // Calculate the total count from the cart items
+                                
                                 var totalCount = cartItems.reduce((acc, item) => acc + item.count, 0);
-                                CardCount.textContent = totalCount; // Update the counter display with the total count
+                                CardCount.textContent = totalCount; 
 
                                 function Add(prodId) {
-                                    // Check if the product already exists in the cart
+                                
                                     var existingItemIndex = cartItems.findIndex(item => item.prodId === prodId);
                                     if (existingItemIndex !== -1) {
-                                        // If the product exists, increment its count
+                                       
                                         cartItems[existingItemIndex].count++;
                                     } else {
-                                        // If the product doesn't exist, add it to the cart with count 1
+                                        
                                         cartItems.push({ prodId: prodId, count: 1 });
                                     }
 
-                                    // Update the total count and display it
+                                    
                                     var totalCount = cartItems.reduce((acc, item) => acc + item.count, 0);
                                     CardCount.textContent = totalCount;
 
-                                    // Store the updated cart items in local storage
+                                    
                                     localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
                                     alert('Product ' + prodId + ' added to cart.');

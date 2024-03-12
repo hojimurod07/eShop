@@ -131,13 +131,13 @@
                                 if (Model.PageNumber == i)
                                 {
                                     <li>
-                                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@i" class=" activ flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i)</a>
+                                        <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@i" class=" activ flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i)</a>
                                     </li>
                                 }
                                 else
                                 {
                                     <li>
-                                        <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@i" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i)</a>
+                                        <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@i" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(i)</a>
                                     </li>
                                 }
 
@@ -166,7 +166,7 @@
                             else
                             {
                                 <li>
-                                    <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="  flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="  flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4" />
                                         </svg>
@@ -177,23 +177,23 @@
 
 
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="2" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="2" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="3" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="3" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
                             </li>
                             <li>
                                 <a href="#" disabled class="flex items-center  justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none ">...</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@Model.TotalPages" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@Model.TotalPages" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
                             </li>
 
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4" />
                                     </svg>
@@ -209,7 +209,7 @@
 
                         <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4" />
                                     </svg>
@@ -218,25 +218,25 @@
 
 
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
                             </li>
                             <li>
                                 <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none">...</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.PageNumber - 1)</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.PageNumber - 1)</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.PageNumber</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.PageNumber)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.PageNumber</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.PageNumber + 1)</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.PageNumber + 1)</a>
                             </li>
                             <li>
                                 <a href="#" disabled class="flex items-center  justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none">...</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.TotalPages)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.TotalPages)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
                             </li>
                             <li>
                                 <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -255,7 +255,7 @@
                         <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
 
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.PageNumber-1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 8-4 4 4 4" />
                                     </svg>
@@ -264,20 +264,20 @@
 
 
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="1" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
                             </li>
 
                             <li>
                                 <a href="#" disabled class="flex items-center  justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white pointer-events-none">...</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.TotalPages - 2)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.TotalPages - 2)</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.TotalPages - 2)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.TotalPages - 2)</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.TotalPages - 1)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.TotalPages - 1)</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.TotalPages - 1)" class=" tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@(Model.TotalPages - 1)</a>
                             </li>
                             <li>
-                                <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.TotalPages)" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
+                                <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.TotalPages)" class="tugma flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">@Model.TotalPages</a>
                             </li>
                             <li>
                                 @if (Model.PageNumber == Model.TotalPages)
@@ -290,7 +290,7 @@
                                 }
                                 else
                                 {
-                                    <a asp-controller="categories" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    <a asp-controller="foods" asp-action="index" asp-route-pageNumber="@(Model.PageNumber+1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4" />
                                         </svg>

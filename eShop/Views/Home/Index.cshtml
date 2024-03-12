@@ -93,48 +93,243 @@
 
 
 
-                            <button type="button" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-yellow-700  hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+                           
+
+
+
+                            <!-- Modal toggle -->
+                            <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800" type="button">
                                 Order Now
                                 <span id="card-caunt-item" class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full">
                                     0
                                 </span>
                             </button>
-                           
+
+                            <!-- Main modal -->
+                            <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                <div class="relative p-4 w-full max-w-3xl max-h-full">
+
+                                    
+                                    <!-- Modal content -->
+                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                        
+                                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                <tr>
+                                                    <th scope="col" class="px-16 py-3">
+                                                        <span class="sr-only">Image</span>
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Product
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Qty
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Price
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Action
+                                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="static-modal">
+                                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                            </svg>
+                                                            <span class="sr-only">Close modal</span>
+                                                        </button>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                    <td class="p-4">
+                                                        <img src="/docs/images/products/apple-watch.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                                    </td>
+                                                    <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                        Apple Watch
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        <div class="flex items-center">
+                                                            <button class="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                                                                <span class="sr-only">Quantity button</span>
+                                                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
+                                                                </svg>
+                                                            </button>
+                                                            <div>
+                                                                <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required />
+                                                            </div>
+                                                            <button class="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                                                                <span class="sr-only">Quantity button</span>
+                                                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                        $599
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                                                    </td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+
+                                        <br />
+
+                                        <!-- Modal toggle -->
+                                        <button style="display:flex;justify-content:flex-end" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                            Buy
+                                        </button>
+
+                                        <!-- Main modal -->
+                                        <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                            <div class="relative p-4 w-full max-w-md max-h-full">
+                                                <!-- Modal content -->
+                                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                    <!-- Modal header -->
+                                                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                           Order
+                                                        </h3>
+                                                        <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
+                                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                            </svg>
+                                                            <span class="sr-only">Close modal</span>
+                                                        </button>
+                                                    </div>
+                                                    <!-- Modal body -->
+                                                    <div class="p-4 md:p-5">
+                                                        <form class="space-y-4" action="#">
+                                                            <div>
+                                                                <label for="f" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your full name</label>
+                                                                <input type="text" id="f" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  required />
+                                                            </div>
+                                                            <div>
+                                                                <label for="t" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your PhoneNumber</label>
+                                                                <input type="tel" id="t" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                                            </div>
+                                                            <div>
+                                                                <label for="a" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Adress</label>
+                                                                <input type="text" id="a" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                                            </div>
+
+                                                            <div class="flex justify-between">
+                                                                <div class="flex items-start">
+                                                                    <div class="flex items-center h-5">
+                                                                        <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+                                                                    </div>
+                                                                    <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                                                                </div>
+                                                                <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+                                                            </div>
+                                                            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
+                                                            <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                                                                Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
                             <script>
                                 var CardCount = document.getElementById("card-caunt-item");
-                                var cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; 
+                                var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-                                
-                                var totalCount = cartItems.reduce((acc, item) => acc + item.count, 0);
-                                CardCount.textContent = totalCount; 
+                                // Function to update the modal table with cart items
+                                function updateModalTable() {
+                                    var modalTableBody = document.querySelector("#static-modal tbody");
+                                    modalTableBody.innerHTML = ''; // Clear the table body
 
+                                    cartItems.forEach(item => {
+                                        var row = document.createElement('tr');
+                                        row.classList.add('bg-white', 'border-b', 'dark:bg-gray-800', 'dark:border-gray-700', 'hover:bg-gray-50', 'dark:hover:bg-gray-600');
+
+                                        // Product Image
+                                        var imgCell = document.createElement('td');
+                                        imgCell.classList.add('p-4');
+                                        var img = document.createElement('img');
+                                        img.setAttribute('src', `/docs/images/products/${item.prodId}.png`);
+                                        img.setAttribute('alt', `${item.prodId}`);
+                                        img.classList.add('w-16', 'md:w-32', 'max-w-full', 'max-h-full');
+                                        imgCell.appendChild(img);
+                                        row.appendChild(imgCell);
+
+                                        // Product Name
+                                        var nameCell = document.createElement('td');
+                                        nameCell.classList.add('px-6', 'py-4', 'font-semibold', 'text-gray-900', 'dark:text-white');
+                                        nameCell.textContent = item.prodId;
+                                        row.appendChild(nameCell);
+
+                                        // Quantity
+                                        var qtyCell = document.createElement('td');
+                                        qtyCell.classList.add('px-6', 'py-4');
+                                        qtyCell.innerHTML = `<div class="flex items-center">
+                                                                    <input type="number" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="${item.count}" required />
+                                                                </div>`;
+                                        row.appendChild(qtyCell);
+
+                                        // Price (assuming a fixed price for simplicity)
+                                        var priceCell = document.createElement('td');
+                                        priceCell.classList.add('px-6', 'py-4', 'font-semibold', 'text-gray-900', 'dark:text-white');
+                                        priceCell.textContent = '$599'; // You can customize this based on your data structure
+                                        row.appendChild(priceCell);
+
+                                        // Action (remove button)
+                                        var actionCell = document.createElement('td');
+                                        actionCell.classList.add('px-6', 'py-4');
+                                        var removeButton = document.createElement('button');
+                                        removeButton.textContent = 'Remove';
+                                        removeButton.classList.add('font-medium', 'text-red-600', 'dark:text-red-500', 'hover:underline');
+                                        removeButton.addEventListener('click', function () {
+                                            removeItem(item.prodId);
+                                        });
+                                        actionCell.appendChild(removeButton);
+                                        row.appendChild(actionCell);
+
+                                        modalTableBody.appendChild(row);
+                                    });
+
+                                    // Update the total count
+                                    var totalCount = cartItems.reduce((acc, item) => acc + item.count, 0);
+                                    CardCount.textContent = totalCount;
+                                }
+
+                                // Call the function to initially populate the modal table
+                                updateModalTable();
+
+                                // Function to add an item to the cart
                                 function Add(prodId) {
-                                
                                     var existingItemIndex = cartItems.findIndex(item => item.prodId === prodId);
                                     if (existingItemIndex !== -1) {
-                                       
                                         cartItems[existingItemIndex].count++;
                                     } else {
-                                        
                                         cartItems.push({ prodId: prodId, count: 1 });
                                     }
 
-                                    
-                                    var totalCount = cartItems.reduce((acc, item) => acc + item.count, 0);
-                                    CardCount.textContent = totalCount;
-
-                                    
                                     localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-                                    alert('Product ' + prodId + ' added to cart.');
+                                    updateModalTable(); // Update the modal table with the latest cart items
+                                    
                                 }
 
-
-
+                                // Function to remove an item from the cart and update the modal
+                                function removeItem(prodId) {
+                                    cartItems = cartItems.filter(item => item.prodId !== prodId); // Remove the item from the cart
+                                    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Update localStorage
+                                    updateModalTable(); // Update the modal table with the latest cart items
+                                    alert('Product ' + prodId + ' removed from cart.');
+                                }
                             </script>
 
 
-                           
                         </div>
                     </div>
                 </nav>
